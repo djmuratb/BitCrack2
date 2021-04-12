@@ -11,6 +11,7 @@ Thank you him for his hardwork.
 
 - Added random stride option, by using this option, the program run indefinitely after the end of keyspace, it starts again from starting range with the updated random stride of given bit length, it continues doing this until it found keys or you stoped it. This is like a random walk with random distance.
 - In --rstride N, N should be ```32 >= N >= 1```
+- Saving-Loading checkpoints are not modified for new changes.
 - Everything else is same as original BitCrack.
   
 # Usage
