@@ -44,7 +44,7 @@ Where TARGETS is one or more addresses
 --rstride N             Random stride bits, continue after end of range by setting up new random stride
 --share M/N             Divide the keyspace into N equal shares, process the Mth share
 --continue FILE         Save/load progress from FILE
--v, --version        Use compressed points
+-v, --version           Show version
 ```
 
 For puzzle ```35```, ```36``` and ```37```
