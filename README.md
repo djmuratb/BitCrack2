@@ -1,7 +1,8 @@
 # BitCrack2
 _Hunt for Bitcoin private keys._
 
-It is a modified version of [BitCrack](https://github.com/brichard19/BitCrack) by [brichard19](https://github.com/brichard19).
+It is a modified version of [BitCrack](https://github.com/brichard19/BitCrack) by [brichard19](https://github.com/brichard19),
+for random mode.
 
 Thank you him for his hardwork.
 
