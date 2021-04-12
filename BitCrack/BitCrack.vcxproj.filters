@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CryptoUtil">
+      <UniqueIdentifier>{f127f924-8416-470e-b999-018f4671ca7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CmdParse">
+      <UniqueIdentifier>{bf170b64-cc6a-4a9a-b8a5-331270e9c91a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AddrUtil">
+      <UniqueIdentifier>{dc738944-94d9-470f-a503-e6cce6c1ad3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CudaDevice">
+      <UniqueIdentifier>{83a33302-fb88-4080-9e04-6b9df7c2864d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CudaMath">
+      <UniqueIdentifier>{94b63540-b567-45d8-bcf7-60e9cfa7068e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CudaUtil">
+      <UniqueIdentifier>{ce0f9f4d-b7ca-4717-bba1-e5365fc6f157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeyFinder">
+      <UniqueIdentifier>{082a40ba-0cca-44df-8646-34005b8285c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logger">
+      <UniqueIdentifier>{16ed6d90-0ee3-4a8d-85ed-cdb46b66887d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Secp256k1">
+      <UniqueIdentifier>{b8301b61-0597-4c16-afce-d4ae6679e98f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{b4b5bc25-9392-4bf1-a1c5-b24a4f504d90}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AddrUtil\AddressUtil.h">
+      <Filter>AddrUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdParse\CmdParse.h">
+      <Filter>CmdParse</Filter>
+    </ClInclude>
+    <ClInclude Include="CryptoUtil\CryptoUtil.h">
+      <Filter>CryptoUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDevice\CudaAtomicList.cuh">
+      <Filter>CudaDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDevice\CudaAtomicList.h">
+      <Filter>CudaDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDevice\cudabridge.h">
+      <Filter>CudaDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDevice\CudaDeviceKeys.cuh">
+      <Filter>CudaDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDevice\CudaDeviceKeys.h">
+      <Filter>CudaDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDevice\CudaHashLookup.cuh">
+      <Filter>CudaDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDevice\CudaHashLookup.h">
+      <Filter>CudaDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaDevice\CudaKeySearchDevice.h">
+      <Filter>CudaDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaMath\ptx.cuh">
+      <Filter>CudaMath</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaMath\ripemd160.cuh">
+      <Filter>CudaMath</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaMath\secp256k1.cuh">
+      <Filter>CudaMath</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaMath\sha256.cuh">
+      <Filter>CudaMath</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaUtil\cudaUtil.h">
+      <Filter>CudaUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyFinder\ConfigFile.h">
+      <Filter>KeyFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyFinder\DeviceManager.h">
+      <Filter>KeyFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyFinder\KeyFinder.h">
+      <Filter>KeyFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyFinder\KeyFinderShared.h">
+      <Filter>KeyFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyFinder\KeySearchDevice.h">
+      <Filter>KeyFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyFinder\KeySearchTypes.h">
+      <Filter>KeyFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger\Logger.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\util.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Secp256k1\secp256k1.h">
+      <Filter>Secp256k1</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AddrUtil\Base58.cpp">
+      <Filter>AddrUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="AddrUtil\hash.cpp">
+      <Filter>AddrUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdParse\CmdParse.cpp">
+      <Filter>CmdParse</Filter>
+    </ClCompile>
+    <ClCompile Include="CryptoUtil\checksum.cpp">
+      <Filter>CryptoUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="CryptoUtil\hash.cpp">
+      <Filter>CryptoUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="CryptoUtil\ripemd160.cpp">
+      <Filter>CryptoUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="CryptoUtil\Rng.cpp">
+      <Filter>CryptoUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="CryptoUtil\sha256.cpp">
+      <Filter>CryptoUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="CudaDevice\CudaKeySearchDevice.cpp">
+      <Filter>CudaDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="CudaUtil\cudaUtil.cpp">
+      <Filter>CudaUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyFinder\ConfigFile.cpp">
+      <Filter>KeyFinder</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyFinder\DeviceManager.cpp">
+      <Filter>KeyFinder</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyFinder\KeyFinder.cpp">
+      <Filter>KeyFinder</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger\Logger.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\util.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Secp256k1\secp256k1.cpp">
+      <Filter>Secp256k1</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="CudaDevice\CudaAtomicList.cu">
+      <Filter>CudaDevice</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CudaDevice\cudabridge.cu">
+      <Filter>CudaDevice</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CudaDevice\CudaDeviceKeys.cu">
+      <Filter>CudaDevice</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CudaDevice\CudaHashLookup.cu">
+      <Filter>CudaDevice</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CudaDevice\CudaKeySearchDevice.cu">
+      <Filter>CudaDevice</Filter>
+    </CudaCompile>
+  </ItemGroup>
+</Project>
