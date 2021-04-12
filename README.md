@@ -41,7 +41,7 @@ Where TARGETS is one or more addresses
                           :+COUNT
                         Where START, END, COUNT are in hex format
 --stride N              Increment by N keys at a time
---rstride N             Random stride bits, continue after end of range by setting up new random stride
+--rstride N             Random stride bits, continue after end of range by setting up new random stride, Where N in hex format
 --share M/N             Divide the keyspace into N equal shares, process the Mth share
 --continue FILE         Save/load progress from FILE
 -v, --version           Show version
