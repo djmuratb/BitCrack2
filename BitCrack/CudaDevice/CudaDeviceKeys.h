@@ -7,6 +7,7 @@
 #include <vector>
 #include "../Secp256k1/secp256k1.h"
 
+//#define VECTORIZED_MEMORY_ACCESS
 
 class CudaDeviceKeys {
 

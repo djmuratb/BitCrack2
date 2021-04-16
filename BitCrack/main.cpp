@@ -13,7 +13,7 @@
 
 #include "CudaDevice/CudaKeySearchDevice.h"
 
-#define RELEASE "1.00"
+#define RELEASE "1.01"
 
 typedef struct _RunConfig {
 	// startKey is the first key. We store it so that if the --continue

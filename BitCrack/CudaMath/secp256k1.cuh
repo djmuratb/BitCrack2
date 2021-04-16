@@ -81,6 +81,31 @@ __device__ static bool equal(const unsigned int* a, const unsigned int* b)
 /**
  * Reads an 8-word big integer from device memory
  */
+#ifdef VECTORIZED_MEMORY_ACCESS
+__device__ static void readInt(unsigned int* ara, int idx, unsigned int x[8])
+{
+	uint4* araTmp = reinterpret_cast<uint4*>(ara);
+
+	unsigned int totalThreads = gridDim.x * blockDim.x;
+	unsigned int base = idx * totalThreads * 2;
+	unsigned int threadId = blockDim.x * blockIdx.x + threadIdx.x;
+	unsigned int index = base + threadId;
+
+	uint4 xTmp = araTmp[index];
+	x[0] = xTmp.x;
+	x[1] = xTmp.y;
+	x[2] = xTmp.z;
+	x[3] = xTmp.w;
+
+	index += totalThreads;
+
+	xTmp = araTmp[index];
+	x[4] = xTmp.x;
+	x[5] = xTmp.y;
+	x[6] = xTmp.z;
+	x[7] = xTmp.w;
+}
+#else
 __device__ static void readInt(const unsigned int* ara, int idx, unsigned int x[8])
 {
 	int totalThreads = gridDim.x * blockDim.x;
@@ -96,7 +121,25 @@ __device__ static void readInt(const unsigned int* ara, int idx, unsigned int x[
 		index += totalThreads;
 	}
 }
+#endif // VECTORIZED_MEMORY_ACCESS
 
+#ifdef VECTORIZED_MEMORY_ACCESS
+__device__ static unsigned int readIntLSW(unsigned int* ara, int idx)
+{
+	uint4* araTmp = reinterpret_cast<uint4*>(ara);
+
+	unsigned int totalThreads = gridDim.x * blockDim.x;
+	unsigned int base = idx * totalThreads * 2;
+	unsigned int threadId = blockDim.x * blockIdx.x + threadIdx.x;
+	unsigned int index = base + threadId;
+
+	index += totalThreads;
+
+	uint4 xTmp = araTmp[index];
+
+	return xTmp.w;
+}
+#else
 __device__ static unsigned int readIntLSW(const unsigned int* ara, int idx)
 {
 	int totalThreads = gridDim.x * blockDim.x;
@@ -109,10 +152,37 @@ __device__ static unsigned int readIntLSW(const unsigned int* ara, int idx)
 
 	return ara[index + totalThreads * 7];
 }
+#endif // VECTORIZED_MEMORY_ACCESS
 
 /**
  * Writes an 8-word big integer to device memory
  */
+#ifdef VECTORIZED_MEMORY_ACCESS
+__device__ static void writeInt(unsigned int* ara, int idx, const unsigned int x[8])
+{
+	uint4* araTmp = reinterpret_cast<uint4*>(ara);
+
+	unsigned int totalThreads = gridDim.x * blockDim.x;
+	unsigned int base = idx * totalThreads * 2;
+	unsigned int threadId = blockDim.x * blockIdx.x + threadIdx.x;
+	unsigned int index = base + threadId;
+
+	uint4 xTmp;
+	xTmp.x = x[0];
+	xTmp.y = x[1];
+	xTmp.z = x[2];
+	xTmp.w = x[3];
+	araTmp[index] = xTmp;
+
+	index += totalThreads;
+
+	xTmp.x = x[4];
+	xTmp.y = x[5];
+	xTmp.z = x[6];
+	xTmp.w = x[7];
+	araTmp[index] = xTmp;
+}
+#else
 __device__ static void writeInt(unsigned int* ara, int idx, const unsigned int x[8])
 {
 	int totalThreads = gridDim.x * blockDim.x;
@@ -128,6 +198,7 @@ __device__ static void writeInt(unsigned int* ara, int idx, const unsigned int x
 		index += totalThreads;
 	}
 }
+#endif // VECTORIZED_MEMORY_ACCESS
 
 /**
  * Subtraction mod p
@@ -674,8 +745,11 @@ __device__ __forceinline__ static void beginBatchAddWithDouble(const unsigned in
 
 	writeInt(chain, batchIdx, inverse);
 }
-
+#ifdef VECTORIZED_MEMORY_ACCESS
+__device__ static void completeBatchAddWithDouble(const unsigned int* px, const unsigned int* py, unsigned int* xPtr, unsigned int* yPtr, int i, int batchIdx, unsigned int* chain, unsigned int* inverse, unsigned int newX[8], unsigned int newY[8])
+#else
 __device__ static void completeBatchAddWithDouble(const unsigned int* px, const unsigned int* py, const unsigned int* xPtr, const unsigned int* yPtr, int i, int batchIdx, unsigned int* chain, unsigned int* inverse, unsigned int newX[8], unsigned int newY[8])
+#endif // VECTORIZED_MEMORY_ACCESS
 {
 	unsigned int s[8];
 	unsigned int x[8];
